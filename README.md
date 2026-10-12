@@ -6,7 +6,7 @@ Atividade acadêmica de Paradigmas de Programação desenvolvida em Python 3. O 
 
 O projeto foi dividido em três áreas:
 
-- produtos: cadastro, listagem, consulta, edição e exclusão;
+- produtos: cadastro, listagem, consulta e alteração de nome, preço e estoque mínimo;
 - estoque: entradas, saídas e histórico de movimentações;
 - vendas: registro e consulta de vendas.
 
@@ -50,6 +50,8 @@ Cada produto é um dicionário com os campos:
 - `estoque_minimo`: quantidade inteira não negativa em unidades.
 
 Todo produto novo começa com `quantidade` igual a `0`. O módulo de produtos não deve modificar essa quantidade; alterações de saldo são responsabilidade do módulo de estoque.
+
+O `codigo` é normalizado sem espaços externos e com letras maiúsculas antes do cadastro ou da busca. Depois do cadastro, o código não pode ser alterado. A alteração de produtos permite modificar somente `nome`, `preco_centavos` e `estoque_minimo`.
 
 Exemplo estrutural:
 
@@ -112,7 +114,7 @@ As funções `consultar_saldo`, `registrar_movimentacao`, `menu_estoque` e `menu
 
 ## Responsabilidades de integração
 
-- Integrante 1 — produtos: manter códigos únicos, criar produtos com saldo zero, armazenar preços em centavos e oferecer `buscar_produto` e `menu_produtos`.
+- Integrante 1 — produtos: normalizar e manter códigos únicos, criar produtos com saldo zero, armazenar preços em centavos, permitir somente as alterações previstas no contrato e oferecer `buscar_produto` e `menu_produtos`.
 - Integrante 2 — estoque: consultar e alterar saldos, validar entradas e saídas, impedir quantidade negativa, registrar movimentações somente após validação completa e implementar `consultar_saldo`, `registrar_movimentacao` e `menu_estoque`.
 - Integrante 3 — vendas: validar itens, calcular subtotais e total em centavos, usar a função de movimentação para efetuar as saídas e somente registrar uma venda quando toda a operação for válida; implementar `menu_vendas`.
 
